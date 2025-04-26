@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accesorios Gaby | Elegancia en Cover Gold</title>
+  <meta name="description" content="Accesorios Gaby: Collares, pulseras, anillos y simuladores en Cover Gold. Elegancia y sofisticación.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #FFFFFF;
+      --color-text: #333333;
+      --color-accent: #D4AF37;
+      --color-light: #F7F7F7;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --transition-speed: 0.3s;
+      --max-width: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg) url('pattern-dot.svg') repeat; background-size:20px 20px; line-height:1.6; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width: var(--max-width); margin:0 auto; padding:0 1rem; }
+    header { position:sticky; top:0; width:100%; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px); box-shadow:0 2px 5px rgba(0,0,0,0.05); z-index:100; }
+    nav { display:flex; align-items:center; justify-content:space-between; height:80px; }
+    .logo img { height:50px; }
+    .menu { display:flex; gap:2rem; }
+    .menu a { font-weight:600; text-transform:uppercase; font-size:0.9rem; position:relative; padding:0.5rem 0; transition:color var(--transition-speed); }
+    .menu a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--color-accent); transition:width var(--transition-speed); }
+    .menu a:hover { color:var(--color-accent); }
+    .menu a:hover::after { width:100%; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger div { width:25px; height:3px; background:var(--color-text); }
+    @media(max-width:768px){ .menu{position:absolute; top:80px; right:0; background:var(--color-bg); flex-direction:column; width:200px; transform:translateX(100%); transition:transform var(--transition-speed); box-shadow:-2px 2px 10px rgba(0,0,0,0.1);} .menu.open{transform:translateX(0);} .hamburger{display:flex;} }
+    .hero { height:80vh; display:flex; align-items:center; justify-content:center; background:url('banner-hero.jpg') center/cover no-repeat; position:relative; text-align:center; color:var(--color-bg); }
+    .hero::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.6); }
+    .hero-content { position:relative; z-index:1; max-width:90%; animation:fadeInUp .8s ease-out; }
+    .hero h1{ font-family:var(--font-heading); font-size:4rem; margin-bottom:1rem; letter-spacing:3px; }
+    .hero p{ font-size:1.2rem; margin-bottom:2rem; }
+    .hero a.btn{ background:var(--color-accent); color:#fff; padding:0.85rem 2rem; border-radius:50px; text-transform:uppercase; font-weight:600; transition:transform var(--transition-speed);} .hero a.btn:hover{transform:translateY(-3px);}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+    section{padding:6rem 0;} section:nth-child(even){background:var(--color-light);} h2{font-family:var(--font-heading);font-size:2.75rem;text-align:center;margin-bottom:1rem;}
+    /* Sobre */
+    #sobre .grid-3{display:grid;grid-template-columns:1fr;gap:2rem;max-width:1000px;margin:0 auto;} @media(min-width:768px){#sobre .grid-3{grid-template-columns:repeat(3,1fr);}}
+    .feature{text-align:center;} .feature svg{width:40px;height:40px;margin-bottom:0.5rem;fill:var(--color-accent);} .feature h3{font-family:var(--font-heading);font-size:1.3rem;margin-bottom:0.5rem;} .feature p{font-size:1rem;}
+    /* Historia */
+    #historia{max-width:900px;margin:0 auto;text-align:center;} #historia p{margin:1rem 0;font-size:1rem;}
+    /* Proceso */
+    #proceso .steps{display:grid;grid-template-columns:1fr;gap:2rem;max-width:1000px;margin:0 auto;} @media(min-width:768px){#proceso .steps{grid-template-columns:repeat(3,1fr);}}
+    .step{text-align:center;padding:1rem;} .step h4{font-family:var(--font-heading);margin-bottom:0.5rem;} .step p{font-size:1rem;}
+    /* Productos */
+    .filter-bar{text-align:center;margin-bottom:2rem;} .filter-bar input{padding:0.6rem 1rem;width:260px;border:1px solid #ccc;border-radius:4px;}
+    #productos .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;}
+    .card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 15px rgba(0,0,0,0.07);display:flex;flex-direction:column;transition:transform var(--transition-speed);} .card:hover{transform:translateY(-5px);}
+    .card img{width:100%;height:220px;object-fit:cover;} .card-body{padding:1.5rem;display:flex;flex-direction:column;flex:1;} .card-body h3{font-family:var(--font-heading);margin-bottom:0.5rem;} .card-body p.price{margin-top:auto;color:var(--color-accent);font-weight:700;} .card-body a.btn{margin-top:1rem;background:var(--color-accent);color:#fff;padding:0.6rem;border-radius:4px;text-transform:uppercase;font-size:0.85rem;}
+    /* FAQ */
+    #faq{max-width:800px;margin:0 auto;} .faq-item{margin-bottom:1.5rem;} .faq-item h4{font-family:var(--font-heading);margin-bottom:0.5rem;} .faq-item p{font-size:1rem;}
+    /* Blog */
+    #blog .posts{display:grid;grid-template-columns:1fr;gap:2rem;max-width:1000px;margin:0 auto;} @media(min-width:768px){#blog .posts{grid-template-columns:repeat(3,1fr);}}
+    .post{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.05);} .post img{width:100%;height:180px;object-fit:cover;} .post-body{padding:1rem;} .post-body h3{font-family:var(--font-heading);font-size:1.1rem;margin-bottom:0.5rem;} .post-body p{font-size:0.9rem;}
+    /* Newsletter */
+    #newsletter{text-align:center;} #newsletter input{padding:0.8rem 1rem;width:320px;border:1px solid #ccc;border-radius:4px;margin-right:0.5rem;} #newsletter button{padding:0.8rem 1.5rem;background:var(--color-accent);color:#fff;border:none;border-radius:4px;cursor:pointer;}
+    /* Testimonios */
+    #testimonios .testimonials{display:grid;grid-template-columns:1fr;gap:2rem;max-width:800px;margin:0 auto;} @media(min-width:768px){#testimonios .testimonials{grid-template-columns:repeat(2,1fr);}}
+    .testimonial{background:#fff;border-left:5px solid var(--color-accent);padding:2rem;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,0.05);} .testimonial small{display:block;margin-top:1rem;font-style:normal;}
+    /* Contacto */
+    #contacto .contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;max-width:800px;margin:0 auto;} @media(min-width:768px){#contacto .contact-grid{grid-template-columns:1fr 1fr;}}
+    .contact-info, .contact-form{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.05);} .contact-form input, .contact-form textarea{width:100%;padding:0.75rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:4px;} .contact-form button{padding:0.75rem 1.5rem;background:var(--color-accent);color:#fff;border:none;border-radius:4px;cursor:pointer;}
+    /* Legal & Footer */
+    #privacidad, #terminos{padding:3rem 1rem;max-width:800px;margin:0 auto;font-size:0.9rem;background:var(--color-light);border-radius:6px;} #privacidad h2, #terminos h2{margin-bottom:1rem;}
+    footer{background:var(--color-bg);padding:3rem 1rem;text-align:center;} footer .social-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1rem;} footer .social-icons img{width:28px;filter:grayscale(100%);} footer .legal a{margin:0 0.5rem;color:var(--color-text);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><img src="jpg.1.png" alt="Accesorios Gaby"></div>
+        <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+        <div class="menu" id="menu">
+          <a href="#sobre">Sobre Nosotros</a>
+          <a href="#historia">Historia</a>
+          <a href="#productos">Productos</a>
+          <a href="#faq">FAQs</a>
+          <a href="#blog">Blog</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content container">
+      <h1>Elegancia en Cover Gold</h1>
+      <p>Descubre nuestra colección exclusiva de accesorios que combinan calidad y estilo.</p>
+      <a href="#productos" class="btn">Compra Ahora</a>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <h2>Sobre Nosotros</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30"/></svg>
+          <h3>Misión</h3>
+          <p>Brindar piezas únicas en Cover Gold que resalten tu estilo, con sofisticación y durabilidad.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 64 64"><rect x="12" y="12" width="40" height="40"/></svg>
+          <h3>Visión</h3>
+          <p>Ser marca líder en accesorios para 2030, reconocida por calidad y diseño únicos.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 64 64"><polygon points="32,6 58,58 6,58"/></svg>
+          <h3>Valores</h3>
+          <p>Calidad, Confianza, Accesibilidad, Innovación y Compromiso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="container">
+      <h2>Historia</h2>
+      <p>En Accesorios Gaby, cada accesorio es una forma de expresión personal. Desde el inicio, 
+      <p>la marca se ha enfocado en ofrecer piezas en Cover Gold, destacadas por su brillo, durabilidad y resistencia.</p>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="container">
+      <h2>Proceso de Elaboración</h2>
+      <div class="steps">
+        <div class="step">
+          <h4>1. Diseño</h4>
+          <p>Conceptualizamos cada pieza cuidando proporciones y detalles.</p>
+        </div>
+        <div class="step">
+          <h4>2. Manufactura</h4>
+          <p>Seleccionamos Cover Gold de alta pureza y lo trabajamos artesanalmente.</p>
+        </div>
+        <div class="step">
+          <h4>3. Control de Calidad</h4>
+          <p>Cada accesorio pasa rigurosos tests de durabilidad y acabado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="container">
+      <h2>Nuestros Productos</h2>
+      <div class="filter-bar"><input type="search" placeholder="Busca tu accesorio..."></div>
+      <div class="products-grid">
+        <!-- Múltiples cards de ejemplo -->
+        <div class="card"><img src="jpg.3.jpg" alt="Collar Elegante"><div class="card-body"><h3>Collar Elegante</h3><p class="price">$28.000</p><a href="#" class="btn">Comprar Ahora</a></div></div>
+        <div class="card"><img src="jpg.4.jpg" alt="Pulsera Chic"><div class="card-body"><h3>Pulsera </h3><p class="price">$25.000</p><a href="#" class="btn">Comprar Ahora</a></div></div>
+        <div class="card"><img src="jpg.5.png" alt="Anillo Deluxe"><div class="card-body"><h3>Anillo </h3><p class="price">$35.000</p><a href="#" class="btn">Comprar Ahora</a></div></div>
+        <div class="card"><img src="jpg.6.jpg" alt="Aretes cover Gold"><div class="card-body"><h3>Aretes cover Gold</h3><p class="price">$23.000</p><a href="#" class="btn">Comprar Ahora</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-item"><h4>¿Cuál es el tiempo de entrega?</h4><p>En Colombia, entre 2-5 días hábiles. Internacional: 7-15 días.</p></div>
+      <div class="faq-item"><h4>¿Cómo cuido mis accesorios?</h4><p>Guárdalos en un lugar seco y evita contacto con perfumes o químicos fuertes.</p></div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="container">
+      <h2>Inspiración y Tendencias</h2>
+      <div class="posts">
+        <div class="post"><img src="jpg.7.jpg" alt="Tendencias 2025"><div class="post-body"><h3>Tendencias 2025 en Joyería</h3><p>Descubre los estilos que marcarán la temporada.</p></div></div>
+        <div class="post"><img src="jpg.8.webp" alt="Combinaciones"><div class="post-body"><h3>Combinaciones Perfectas</h3><p>Ideas para combinar accesorios en cada ocasión.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="container">
+      <h2>Únete a nuestra Newsletter</h2>
+      <p>Ofertas exclusivas, lanzamientos y mucho más en tu correo.</p>
+      <input type="email" placeholder="Tu correo electrónico">
+      <button>Suscribirme</button>
+    </div>
+  </section>
+
+  <section id="testimonios">
+    <div class="container">
+      <h2>Testimonios</h2>
+      <div class="testimonials">
+        <div class="testimonial">"Los accesorios de Gaby son impresionantes, combinan con todo y duraron muchísimo."<small>- María L.</small></div>
+        <div class="testimonial">"Calidad y elegancia en cada pieza, ¡totalmente recomendados!"<small>- Camilo R.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="contact-grid">
+        <div class="contact-info"><p><strong>Dirección:</strong> Cra 42 5c – 77 Tequendama, Cali</p><p><strong>Teléfono:</strong> <a href="tel:+573158160102">+57 315 816 0102</a></p><p><strong>Email:</strong> <a href="mailto:info@accesoriosgaby.com">info@accesoriosgaby.com</a></p><p><strong>Horario:</strong> Lun – Vie: 9:00 – 18:00</p></div>
+        <div class="contact-form"><input type="text" placeholder="Tu nombre"><input type="email" placeholder="Tu correo"><textarea rows="4" placeholder="Tu mensaje"></textarea><button>Enviar Mensaje</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacidad"><h2>Política de Privacidad</h2><p>Tu privacidad es fundamental. No compartimos tus datos...</p></section>
+  <section id="terminos"><h2>Términos y Condiciones</h2><p>Al usar este sitio aceptas nuestros términos...</p></section>
+
+  <footer>
+    <div class="container">
+      <div class="social-icons"><a href="#"><img src="jpg.9.jpg" alt="Instagram"></a><a href="#"><img src="jpg.10.png" alt="Facebook"></a><a href="#"><img src="jpg.11.png" alt="WhatsApp"></a></div>
+      <div class="legal"><a href="#privacidad">Política de Privacidad</a>|<a href="#terminos">Términos y Condiciones</a></div>
+    </div>
+  </footer>
+
+  <script>function toggleMenu(){document.getElementById('menu').classList.toggle('open');}</script>
+</body>
+</html>
